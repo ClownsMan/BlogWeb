@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
+// 引入UnoCSS样式
+import 'virtual:uno.css'
 import App from './App.vue'
 // 引入Element Plus
 import ElementPlus from 'element-plus'
