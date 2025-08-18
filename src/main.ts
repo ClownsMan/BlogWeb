@@ -3,6 +3,8 @@ import './style.css'
 // 引入UnoCSS样式
 import 'virtual:uno.css'
 import App from './App.vue'
+// 引入路由
+import router from './router'
 // 引入Element Plus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -17,4 +19,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 
+app.use(router)
 app.mount('#app')

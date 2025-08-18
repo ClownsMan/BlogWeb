@@ -27,14 +27,14 @@ const popularPosts = ref([
         <Folder class="mr-2 text-blue-500" />
         <h3 class="font-medium text-gray-700">文章分类</h3>
       </div>
-      <ul class="divide-y divide-gray-200">
-        <li v-for="category in categories" :key="category.id">
+      <div class="divide-y divide-gray-200">
+        <div v-for="category in categories" :key="category.id">
           <a href="#" class="flex justify-between items-center px-4 py-3 hover:bg-gray-50 transition-colors duration-150">
             <span class="text-gray-700">{{ category.name }}</span>
             <span class="inline-flex items-center justify-center h-5 w-5 rounded-full bg-blue-100 text-blue-800 text-xs">{{ category.count }}</span>
           </a>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
     <div class="sidebar-card mb-6">
@@ -42,16 +42,16 @@ const popularPosts = ref([
         <Fire class="mr-2 text-orange-500" />
         <h3 class="font-medium text-gray-700">热门文章</h3>
       </div>
-      <ul class="divide-y divide-gray-200">
-        <li v-for="post in popularPosts" :key="post.id">
+      <div class="divide-y divide-gray-200">
+        <div v-for="post in popularPosts" :key="post.id">
           <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-50 transition-colors duration-150">
             <span class="text-gray-700 line-clamp-1">{{ post.title }}</span>
             <span class="ml-auto flex items-center text-gray-500 text-xs">
               <View class="mr-1" /> {{ post.views }}
             </span>
           </a>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
     <div class="sidebar-card">
