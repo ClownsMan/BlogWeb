@@ -1,7 +1,28 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { ElCard, ElRow, ElCol } from 'element-plus'
-import { View } from '@element-plus/icons-vue'
+import { getPosts } from '../../api/home'
+
+const init = async () => {
+  getPosts().then(res => {
+    if (res.code === 200) {
+      blogPosts.value = (res.data.data || []).map((item:any) => ({
+        ...item,
+        tags: item.tags.map((n:any) => n.name),
+        category: item.category.name,
+        author: item.author.username,
+        date: item.createdAt,
+        readTime: item.readTime || 88,
+        excerpt: item.excerpt || '暂无简介',
+        coverImage: item.coverImage || 'https://picsum.photos/seed/react19/600/400',
+      }))
+    }
+  })
+}
+
+onMounted(() => {
+  init()
+})
 
 // 博客数据接口定义
 interface BlogPost {
@@ -17,74 +38,7 @@ interface BlogPost {
 }
 
 // 模拟博客数据
-const blogPosts = ref<BlogPost[]>([
-  {
-    id: 1,
-    title: 'React 19 新特性深度解析：并发渲染与服务器组件',
-    excerpt: '探索 React 19 的革命性变化，包括并发渲染机制、服务器组件的实现原理，以及它们将如何改变我们构建现代Web应用的方式。',
-    author: 'A Tech Blogger',
-    date: '2024-01-15',
-    tags: ['React', 'SSR', '性能优化'],
-    readTime: 8,
-    coverImage: 'https://picsum.photos/seed/react19/600/400',
-    category: 'React'
-  },
-  {
-    id: 2,
-    title: 'TypeScript 5.0 高级类型系统：从入门到精通',
-    excerpt: '深入学习 TypeScript 5.0 的高级类型特性，包括模板字面量类型、条件类型、映射类型等，帮你写出更加类型安全的代码。',
-    author: 'A Tech Blogger',
-    date: '2024-01-12',
-    tags: ['TypeScript', '类型系统', '前端'],
-    readTime: 12,
-    coverImage: 'https://picsum.photos/seed/ts5/600/400',
-    category: 'TypeScript'
-  },
-  {
-    id: 3,
-    title: 'Next.js 14 App Router 完整实践指南',
-    excerpt: '通过实际项目学习 Next.js 14 的 App Router，包括路由系统、数据获取、服务端组件和客户端组件的最佳实践。',
-    author: 'A Tech Blogger',
-    date: '2024-01-10',
-    tags: ['Next.js', 'App Router', '全栈'],
-    readTime: 15,
-    coverImage: 'https://picsum.photos/seed/next14/600/400',
-    category: 'Next.js'
-  },
-  {
-    id: 4,
-    title: '前端性能优化终极指南：从理论到实践',
-    excerpt: '全面覆盖前端性能优化的各个方面，从代码分割、懒加载到图片优化、CDN配置，让你的网站飞起来。',
-    author: 'A Tech Blogger',
-    date: '2024-01-08',
-    tags: ['性能优化', 'WebPack', 'CDN'],
-    readTime: 10,
-    coverImage: 'https://picsum.photos/seed/performance/600/400',
-    category: '性能优化'
-  },
-  {
-    id: 5,
-    title: 'Vue 3 Composition API 实现原理与模式总结',
-    excerpt: '探索 Vue Composition API 的核心功能，通过源码分析学习如何构建更加模块化和可维护的Vue应用。',
-    author: 'A Tech Blogger',
-    date: '2024-01-05',
-    tags: ['Vue3', 'Composition API', '模式设计'],
-    readTime: 9,
-    coverImage: 'https://picsum.photos/seed/vue3/600/400',
-    category: 'Vue'
-  },
-  {
-    id: 6,
-    title: 'Node.js 微服务架构设计与实现',
-    excerpt: '学习如何使用 Node.js 构建可扩展的微服务架构，包括服务发现、API网关、消息队列等核心概念。',
-    author: 'A Tech Blogger',
-    date: '2024-01-03',
-    tags: ['Node.js', '微服务', '架构设计'],
-    readTime: 14,
-    coverImage: 'https://picsum.photos/seed/microservice/600/400',
-    category: 'Node.js'
-  }
-])
+const blogPosts = ref<BlogPost[]>([])
 
 // 查看博客详情
 const viewBlog = (id: number) => {

@@ -10,6 +10,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // 引入Element Plus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// 引入API实例
+import api from './api/index'
 
 const app = createApp(App)
 // 注册Element Plus
@@ -20,4 +22,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 app.use(router)
+// 挂载API实例到Vue应用上
+app.config.globalProperties.$api = api
 app.mount('#app')

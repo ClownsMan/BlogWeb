@@ -3,6 +3,7 @@ import Header from '../components/layout/Header.vue'
 import Footer from '../components//layout/Footer.vue'
 import Sidebar from '../components//layout/Sidebar.vue'
 import BlogList from '../components//blog/BlogList.vue'
+
 </script>
 
 <template>
