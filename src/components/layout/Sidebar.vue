@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { getCategories, getPopularPosts, getTags } from '../../api/home'
+import fileSort from '../../assets/fileSort.png'
 
 const init = async () => {
   getCategories().then(res => {
@@ -32,9 +33,27 @@ const init = async () => {
   })
 }
 
-const categories = ref([]) // 分类数据
-const popularPosts = ref([]) // 热门文章数据
-const tags = ref([]) // 标签
+interface Category {
+  id: string
+  name: string
+  count: number
+}
+
+interface PopularPost {
+  id: string
+  title: string
+  views: number
+}
+
+interface Tag {
+  id: string
+  name: string
+  count: number
+}
+
+const categories = ref<Category[]>([]) // 分类数据
+const popularPosts = ref<PopularPost[]>([]) // 热门文章数据
+const tags = ref<Tag[]>([]) // 标签
 
 onMounted(() => {
   init()
@@ -45,7 +64,8 @@ onMounted(() => {
   <aside class="sidebar-container">
     <div class="sidebar-card mb-6">
       <div class="sidebar-header flex items-center px-4 py-3 bg-gray-50 border-b border-gray-200">
-        <Folder class="mr-2 text-blue-500" />
+        <!-- <Folder class="mr-2 text-blue-500" /> -->
+        <img :src="fileSort" alt="logo" class="w-100px h-100px mr-20px" />
         <h3 class="font-medium text-gray-700">文章分类</h3>
       </div>
       <div class="divide-y divide-gray-200">

@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { ElCard, ElRow, ElCol } from 'element-plus'
+import { useRouter } from 'vue-router'
 import { getPosts } from '../../api/home'
+import { convertISOToDateTime } from '../../utils/index'
+
+// 创建router实例
+const router = useRouter()
 
 const init = async () => {
   getPosts().then(res => {
@@ -11,7 +16,7 @@ const init = async () => {
         tags: item.tags.map((n:any) => n.name),
         category: item.category.name,
         author: item.author.username,
-        date: item.createdAt,
+        date: convertISOToDateTime(item.createdAt, 'date'),
         readTime: item.readTime || 88,
         excerpt: item.excerpt || '暂无简介',
         coverImage: item.coverImage || 'https://picsum.photos/seed/react19/600/400',
@@ -42,8 +47,7 @@ const blogPosts = ref<BlogPost[]>([])
 
 // 查看博客详情
 const viewBlog = (id: number) => {
-  console.log('查看博客:', id)
-  // 这里可以添加路由跳转逻辑
+  router.push(`/blog/${id}`)
 }
 </script>
 
@@ -87,7 +91,7 @@ const viewBlog = (id: number) => {
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                 </svg>
-                <span>{{ post.readTime }} 分钟</span>
+                <span>{{ post.readTime }} min</span>
               </div>
             </div>
           </div>

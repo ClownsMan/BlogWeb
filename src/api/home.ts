@@ -19,3 +19,8 @@ export const getPopularPosts = () => {
 export const getTags = () => {
   return api.get('/tags')
 }
+
+// 获取文章详情
+export const getPostById = (data) => {
+  return api.post('/posts/detail', data)
+}

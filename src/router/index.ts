@@ -3,6 +3,7 @@ import HomePage from '../page/HomePage.vue'
 import TechSharePage from '../page/TechSharePage.vue'
 import ToolPage from '../page/ToolPage.vue'
 import AboutPage from '../page/AboutPage.vue'
+import BlogDetail from '../page/BlogDetail.vue'
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: '/about',
     name: 'About',
     component: AboutPage
+  },
+  {
+    path: '/blog/:id',
+    name: 'BlogDetail',
+    component: BlogDetail,
+    props: true
   }
 ]
 

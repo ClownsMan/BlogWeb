@@ -2,7 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import Header from '../components/layout/Header.vue'
 import Footer from '../components/layout/Footer.vue'
-import { ElCard, ElRow, ElCol, ElInput, ElSelect, ElOption, ElButton, ElTabs, ElTabPane } from 'element-plus'
+import { ElCard, ElInput, ElSelect, ElOption, ElButton } from 'element-plus'
 // 图标已在main.ts中全局注册，无需单独导入
 
 // 工具数据接口定义 - 触发重新编译
@@ -223,11 +223,13 @@ onMounted(() => {
           <span class="w-1 h-6 bg-orange-500 mr-2"></span>热门工具
         </h2>
         <div class="flex flex-wrap gap-2">
-          <button v-for="tool in tools" :key="tool.id" v-if="tool && tool.popular"
-                  class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors"
-                  @click="selectTool(tool)">
-            {{ tool.name }}
-          </button>
+          <template v-for="tool in tools" :key="tool.id">
+            <button v-if="tool && tool.popular"
+                    class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors"
+                    @click="selectTool(tool)">
+              {{ tool.name }}
+            </button>
+          </template>
         </div>
       </div>
 

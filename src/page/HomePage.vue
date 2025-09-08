@@ -3,7 +3,38 @@ import Header from '../components/layout/Header.vue'
 import Footer from '../components//layout/Footer.vue'
 import Sidebar from '../components//layout/Sidebar.vue'
 import BlogList from '../components//blog/BlogList.vue'
+import { ref, onMounted } from 'vue'
+import { getPosts } from '../api/home'
+import { useRouter } from 'vue-router'
 
+// 创建router实例
+const router = useRouter()
+
+const info = ref({
+  postNum: 99,
+})
+
+const init = async () => {
+  getPosts().then(res => {
+    if (res.code === 200) {
+      info.value.postNum = res.data.total
+    }
+  })
+}
+
+// 查看博客详情
+const viewBlog = () => {
+  router.push(`/tech-share`)
+}
+
+// 查看关于博主
+const viewAbout = () => {
+  router.push(`/about`)
+}
+
+onMounted(() => {
+  init()
+})
 </script>
 
 <template>
@@ -26,13 +57,13 @@ import BlogList from '../components//blog/BlogList.vue'
                 专注于前端开发、全栈技术和软件工程最佳实践。与你一起成长，共同探索技术的无限可能。
               </p>
               <div class="flex flex-wrap gap-4">
-                <button class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2">
+                <button class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2" @click="viewBlog">
                   阅读最新文章
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
                 </button>
-                <button class="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                <button class="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors duration-300" @click="viewAbout">
                   关于博主
                 </button>
               </div>
@@ -44,7 +75,7 @@ import BlogList from '../components//blog/BlogList.vue'
               <div class="absolute -bottom-6 -right-6 bg-white p-3 rounded-lg shadow-lg flex items-center gap-2 animate-pulse">
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 <span class="text-sm font-medium">持续更新</span>
-                <span class="text-xs text-gray-500">每周两篇小文章</span>
+                <!-- <span class="text-xs text-gray-500">每周两篇小文章</span> -->
               </div>
             </div>
           </div>
@@ -56,15 +87,15 @@ import BlogList from '../components//blog/BlogList.vue'
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-3 gap-8 text-center">
             <div class="space-y-2">
-              <div class="text-3xl md:text-4xl font-bold text-blue-600">150+</div>
+              <div class="text-3xl md:text-4xl font-bold text-blue-600">{{ info.postNum  }}</div>
               <div class="text-gray-600">技术文章</div>
             </div>
             <div class="space-y-2">
-              <div class="text-3xl md:text-4xl font-bold text-blue-600">10K+</div>
+              <div class="text-3xl md:text-4xl font-bold text-blue-600">1000</div>
               <div class="text-gray-600">月访问量</div>
             </div>
             <div class="space-y-2">
-              <div class="text-3xl md:text-4xl font-bold text-blue-600">5</div>
+              <div class="text-3xl md:text-4xl font-bold text-blue-600">8</div>
               <div class="text-gray-600">年经验</div>
             </div>
           </div>
