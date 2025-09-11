@@ -21,6 +21,6 @@ export const getTags = () => {
 }
 
 // 获取文章详情
-export const getPostById = (data) => {
+export const getPostById = (data:any) => {
   return api.post('/posts/detail', data)
 }

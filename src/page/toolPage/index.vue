@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import Header from '../components/layout/Header.vue'
-import Footer from '../components/layout/Footer.vue'
+import Header from '@/components/layout/Header.vue'
+import Footer from '@/components/layout/Footer.vue'
 import { ElCard, ElInput, ElSelect, ElOption, ElButton } from 'element-plus'
 // 图标已在main.ts中全局注册，无需单独导入
 

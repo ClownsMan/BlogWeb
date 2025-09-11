@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../page/HomePage.vue'
-import TechSharePage from '../page/TechSharePage.vue'
-import ToolPage from '../page/ToolPage.vue'
-import AboutPage from '../page/AboutPage.vue'
-import BlogDetail from '../page/BlogDetail.vue'
+import HomePage from '@/page/home/index.vue'
+import TechSharePage from '@/page/techSharePage/index.vue'
+import ToolPage from '@/page/toolPage/index.vue'
+import AboutPage from '@/page/about/index.vue'
+import BlogDetail from '@/page/Blog/edit.vue'
 
 const routes = [
   {

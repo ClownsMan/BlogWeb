@@ -2,13 +2,13 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import Header from '../components/layout/Header.vue'
-import Footer from '../components/layout/Footer.vue'
-import Sidebar from '../components/layout/Sidebar.vue'
-import { getPostById } from '../api/home'
+import Header from '@/components/layout/Header.vue'
+import Footer from '@/components/layout/Footer.vue'
+import Sidebar from '@/components/layout/Sidebar.vue'
+import { getPostById } from '@/api/home'
 // 如需使用marked库，请先安装：npm install marked @types/marked --save
 import { marked } from 'marked';
-import { convertISOToDateTime } from '../utils/index'
+import { convertISOToDateTime } from '@/utils/index'
 
 // 获取路由信息
 const route = useRoute()

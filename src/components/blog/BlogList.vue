@@ -19,7 +19,7 @@ const init = async () => {
         date: convertISOToDateTime(item.createdAt, 'date'),
         readTime: item.readTime || 88,
         excerpt: item.excerpt || '暂无简介',
-        coverImage: item.coverImage || 'https://picsum.photos/seed/react19/600/400',
+        coverImage: item.cover_url || 'https://picsum.photos/seed/react19/600/400',
       }))
     }
   })

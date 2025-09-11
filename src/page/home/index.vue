@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Header from '../components/layout/Header.vue'
-import Footer from '../components//layout/Footer.vue'
-import Sidebar from '../components//layout/Sidebar.vue'
-import BlogList from '../components//blog/BlogList.vue'
+import Header from '@/components/layout/Header.vue'
+import Footer from '@/components/layout/Footer.vue'
+import Sidebar from '@/components/layout/Sidebar.vue'
+import BlogList from '@/components/blog/BlogList.vue'
 import { ref, onMounted } from 'vue'
-import { getPosts } from '../api/home'
+import { getPosts } from '@/api/home'
 import { useRouter } from 'vue-router'
 
 // 创建router实例
@@ -38,7 +38,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="home-container flex flex-col min-h-screen">
+  <div class="home-container flex flex-col min-h-screen w-full overflow-hidden">
     <!-- 头部导航 -->
     <Header />
 
@@ -104,7 +104,7 @@ onMounted(() => {
 
       <!-- 主要内容区域 -->
       <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 box-border">
           <div class="flex flex-col md:flex-row gap-8">
             <!-- 博客列表区域 -->
             <div class="flex-grow">
