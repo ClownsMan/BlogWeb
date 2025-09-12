@@ -45,18 +45,17 @@ onMounted(() => {
     <!-- 主要内容区域 -->
     <main class="flex-grow">
       <!-- 英雄区域 -->
-      <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16 md:py-24">
+      <section class="bg-gradient-to-r from-blue-50 to-indigo-50 banner_view">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 space-y-6">
-              <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                分享技术<br/>
-                <span class="text-blue-600">探索未来</span>
-              </h1>
-              <p class="text-lg text-gray-600 max-w-lg">
-                专注于前端开发、全栈技术和软件工程最佳实践。与你一起成长，共同探索技术的无限可能。
-              </p>
-              <div class="flex flex-wrap gap-4">
+          <div class="flex flex-col md:flex-row items-center gap-12 justify-center">
+            <div class="md:w-1/2 lg:w-full space-y-6 flex flex-col justify-center items-center">
+              <div class="w-full text-4xl md:text-5xl font-bold text-gray-900 leading-tight welcome_title text-center">
+                Welcome
+              </div>
+              <div class="w-full text-lg text-gray-600 text-center website_name">
+                FrontEnd TechBlog
+              </div>
+              <!-- <div class="flex flex-wrap gap-4">
                 <button class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2" @click="viewBlog">
                   阅读最新文章
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -66,18 +65,17 @@ onMounted(() => {
                 <button class="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors duration-300" @click="viewAbout">
                   关于博主
                 </button>
-              </div>
+              </div> -->
             </div>
-            <div class="md:w-1/2 relative">
+            <!-- <div class="md:w-1/2 relative">
               <div class="w-full h-64 md:h-80 bg-gray-800 rounded-lg overflow-hidden shadow-xl">
                 <img src="https://picsum.photos/800/600" alt="代码编辑器" class="w-full h-full object-cover"/>
               </div>
               <div class="absolute -bottom-6 -right-6 bg-white p-3 rounded-lg shadow-lg flex items-center gap-2 animate-pulse">
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 <span class="text-sm font-medium">持续更新</span>
-                <!-- <span class="text-xs text-gray-500">每周两篇小文章</span> -->
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -130,8 +128,38 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 .home-container {
   background-color: #f5f7fa;
+}
+
+.banner_view {
+  background-image: url('https://pingtou-1257997645.cos.ap-shanghai.myqcloud.com/static/pexels-ithalu-907485.jpg');
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+  padding: 160px 0 40px;
+}
+
+.welcome_title {
+  font-family: 'Pacifico', 'Dancing Script', cursive;
+  font-size: 6rem;
+  color: #ff69b4; /* 粉红色 */
+  background: linear-gradient(135deg, #ffcccb, #ff425e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.website_name {
+  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 0.5px;
+  color: #333;
+  line-height: 30px;
 }
 
 /* 移动端适配 */
