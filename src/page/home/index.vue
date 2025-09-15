@@ -14,6 +14,14 @@ const info = ref({
   postNum: 99,
 })
 
+// 控制下方内容区域的显示/隐藏状态
+const isContentVisible = ref(true)
+
+// 切换内容区域的显示/隐藏
+const toggleContentVisibility = () => {
+  isContentVisible.value = !isContentVisible.value
+}
+
 const init = async () => {
   getPosts().then(res => {
     if (res.code === 200) {
@@ -45,7 +53,7 @@ onMounted(() => {
     <!-- 主要内容区域 -->
     <main class="flex-grow">
       <!-- 英雄区域 -->
-      <section class="bg-gradient-to-r from-blue-50 to-indigo-50 banner_view">
+      <section class="bg-gradient-to-r from-blue-50 to-indigo-50 banner_view relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col md:flex-row items-center gap-12 justify-center">
             <div class="md:w-1/2 lg:w-full space-y-6 flex flex-col justify-center items-center">
@@ -55,33 +63,36 @@ onMounted(() => {
               <div class="w-full text-lg text-gray-600 text-center website_name">
                 FrontEnd TechBlog
               </div>
-              <!-- <div class="flex flex-wrap gap-4">
-                <button class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2" @click="viewBlog">
-                  阅读最新文章
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </button>
-                <button class="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors duration-300" @click="viewAbout">
-                  关于博主
-                </button>
-              </div> -->
             </div>
-            <!-- <div class="md:w-1/2 relative">
-              <div class="w-full h-64 md:h-80 bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                <img src="https://picsum.photos/800/600" alt="代码编辑器" class="w-full h-full object-cover"/>
-              </div>
-              <div class="absolute -bottom-6 -right-6 bg-white p-3 rounded-lg shadow-lg flex items-center gap-2 animate-pulse">
-                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span class="text-sm font-medium">持续更新</span>
-              </div>
-            </div> -->
           </div>
+        
+        </div>
+        
+        <!-- 收缩/展开控制按钮 -->
+        <div class="flex justify-center -mb-12 absolute bottom-20 left-1/2 -translate-x-1/2 toggle_btn" @click="toggleContentVisibility">
+          <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="h-5 w-5 text-blue-600 transition-transform duration-300"
+              :class="{ 'transform rotate-180': !isContentVisible }"
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
         </div>
       </section>
 
       <!-- 统计数据区域 -->
-      <section class="py-12 bg-white">
+      <section 
+        class="py-12 bg-white transition-all duration-500 ease-in-out"
+        :class="{ 'hidden': !isContentVisible }"
+      >
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-3 gap-8 text-center">
             <div class="space-y-2">
@@ -101,7 +112,9 @@ onMounted(() => {
       </section>
 
       <!-- 主要内容区域 -->
-      <section class="py-12 bg-gray-50">
+      <section 
+        class="py-12 bg-gray-50 transition-all duration-500 ease-in-out"
+      >
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 box-border">
           <div class="flex flex-col md:flex-row gap-8">
             <!-- 博客列表区域 -->
@@ -171,5 +184,37 @@ onMounted(() => {
   .mb-6 h2 {
     font-size: 20px;
   }
+}
+.toggle_btn {
+  width: 80px;
+  height: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle_btn::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle_btn svg {
+  position: relative;
+  z-index: 1;
 }
 </style>
