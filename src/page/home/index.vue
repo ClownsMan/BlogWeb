@@ -60,7 +60,7 @@ onMounted(() => {
               <div class="w-full text-4xl md:text-5xl font-bold text-gray-900 leading-tight welcome_title text-center">
                 Welcome
               </div>
-              <div class="w-full text-lg text-gray-600 text-center website_name">
+              <div class="w-full text-lg md:text-xl text-gray-600 text-center website_name">
                 FrontEnd TechBlog
               </div>
             </div>
@@ -146,7 +146,7 @@ onMounted(() => {
 
 .welcome_title {
   font-family: 'Pacifico', 'Dancing Script', cursive;
-  font-size: 6rem;
+  font-size: clamp(2.5rem, 8vw, 6rem);
   color: #ff69b4; /* 粉红色 */
   background: linear-gradient(135deg, #ffcccb, #ff425e);
   -webkit-background-clip: text;
@@ -158,7 +158,7 @@ onMounted(() => {
 }
 .website_name {
   font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
-  font-size: 5rem;
+  font-size: clamp(1.5rem, 5vw, 5rem);
   letter-spacing: 0.5px;
   color: #333;
   line-height: 30px;

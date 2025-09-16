@@ -4,6 +4,7 @@ import { getCategories, getPopularPosts, getTags } from '../../api/home'
 import Header from '@/components/layout/Header.vue';
 import Footer from '@/components/layout/Footer.vue';
 import { useRouter } from 'vue-router'
+import { convertISOToDateTime } from '@/utils/index'
 
 const router = useRouter()
 const searchName = ref('')
@@ -146,7 +147,7 @@ onMounted(() => {
                     <span v-for="tag in article.tags" :key="tag" class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">{{ tag }}</span>
                   </div>
                   <div class="flex justify-between items-center text-xs text-gray-500">
-                    <span>{{ article.authorName }} • {{ article.created_at }}</span>
+                    <span>{{ article.authorName }} • {{ convertISOToDateTime(article.created_at) }}</span>
                     <span>{{ article.readTime }}</span>
                   </div>
                 </div>

@@ -70,10 +70,10 @@ onMounted(() => {
       </div>
       <div class="divide-y divide-gray-200">
         <div v-for="category in categories" :key="category.id">
-          <a href="#" class="flex justify-between items-center px-4 py-3 hover:bg-gray-50 transition-colors duration-150">
+          <div class="flex justify-between items-center px-4 py-3 hover:bg-gray-50 transition-colors duration-150">
             <span class="text-gray-700">{{ category.name }}</span>
             <span class="inline-flex items-center justify-center h-5 w-5 rounded-full bg-blue-100 text-blue-800 text-xs">{{ category.count }}</span>
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@ onMounted(() => {
       </div>
       <div class="divide-y divide-gray-200">
         <div v-for="post in popularPosts" :key="post.id">
-          <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-50 transition-colors duration-150">
+          <a :href="`/blog/${post.id}`" class="flex items-center px-4 py-3 hover:bg-gray-50 transition-colors duration-150">
             <span class="text-gray-700 line-clamp-1">{{ post.title }}</span>
             <span class="ml-auto flex items-center text-gray-500 text-xs">
               <View class="mr-1" /> {{ post.views }}
@@ -101,7 +101,7 @@ onMounted(() => {
         <h3 class="font-medium text-gray-700">标签云</h3>
       </div>
       <div class="p-4 flex flex-wrap gap-2">
-        <a v-for="tag in tags" :key="tag.id" href="#" class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm hover:bg-blue-100 transition-colors duration-150">{{ tag.name }}</a>
+        <div v-for="tag in tags" :key="tag.id" href="#" class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm hover:bg-blue-100 transition-colors duration-150">{{ tag.name }}</div>
         <!-- <a href="#" class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm hover:bg-purple-100 transition-colors duration-150">TypeScript</a>
         <a href="#" class="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm hover:bg-orange-100 transition-colors duration-150">Node.js</a>
         <a href="#" class="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm hover:bg-red-100 transition-colors duration-150">HTML</a>

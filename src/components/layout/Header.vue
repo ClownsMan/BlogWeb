@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const navList = [
-  {
-    path: '/',
-    name: '首页'
-  },
+  // {
+  //   path: '/',
+  //   name: '首页'
+  // },
   {
     path: '/tech-share',
     name: '技术分享'
@@ -18,6 +22,39 @@ const navList = [
   //   name: '关于'
   // }
 ]
+
+// 背景透明度状态
+const backgroundOpacity = ref(0)
+
+// 滚动事件处理函数
+const handleScroll = () => {
+  const scrollPosition = window.scrollY
+  
+  // 当滚动超过50px时，背景开始变白
+  // 当滚动超过200px时，背景完全变白
+  if (scrollPosition > 200) {
+    backgroundOpacity.value = 1
+  } else if (scrollPosition > 50) {
+    backgroundOpacity.value = (scrollPosition - 50) / 150
+  } else {
+    backgroundOpacity.value = 0
+  }
+}
+
+// 跳转首页
+const goHome = () => {
+  router.push('/')
+}
+
+// 挂载时添加滚动事件监听
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+// 卸载时移除滚动事件监听
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
@@ -25,7 +62,7 @@ const navList = [
     <div class="header-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16 w-full">
         <div class="flex items-center">
-          <div class="flex-shrink-0 flex items-center">
+          <div class="flex-shrink-0 flex items-center cursor-pointer" @click="goHome">
             <div class="bg-blue-600 text-white w-10 h-10 rounded-lg flex items-center justify-center mr-2">
               <span class="font-bold">T</span>
             </div>
@@ -67,11 +104,13 @@ const navList = [
 .header-container {
   width: 100%;
   background-color: transparent;
+  background-color: v-bind('`rgba(255, 255, 255, ${backgroundOpacity})`');
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .header-content {
