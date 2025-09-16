@@ -13,10 +13,10 @@ const navList = [
     path: '/tools',
     name: '工具'
   },
-  {
-    path: '/about',
-    name: '关于'
-  }
+  // {
+  //   path: '/about',
+  //   name: '关于'
+  // }
 ]
 </script>
 

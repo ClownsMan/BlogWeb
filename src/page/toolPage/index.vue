@@ -33,86 +33,86 @@ const tools = ref<Tool[]>([
     category: '编码解码',
     popular: true
   },
-  {
-    id: 'color-converter',
-    name: '颜色转换',
-    description: 'HEX/RGB/HSL转换',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>',
-    category: '实用工具',
-    popular: true
-  },
-  {
-    id: 'password-generator',
-    name: '密码生成',
-    description: '生成安全密码',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>',
-    category: '生成工具',
-    popular: true
-  },
-  {
-    id: 'url-encoder',
-    name: 'URL编码',
-    description: 'URL编码解码',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.586 1.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828V1.586zM11.414 1.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828V1.586zM4.586 10.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828v-2.829zM11.414 10.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828v-2.829z" clip-rule="evenodd"/></svg>',
-    category: '编码解码',
-    popular: false
-  },
-  {
-    id: 'regex-tester',
-    name: '正则测试',
-    description: '正则表达式测试',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>',
-    category: '测试工具',
-    popular: false
-  },
-  {
-    id: 'uuid-generator',
-    name: 'UUID生成',
-    description: '生成UUID标识符',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>',
-    category: '生成工具',
-    popular: false
-  },
-  {
-    id: 'time-converter',
-    name: '时间戳转换',
-    description: '时间戳日期转换',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>',
-    category: '实用工具',
-    popular: false
-  },
-  {
-    id: 'hash-calculator',
-    name: '哈希计算',
-    description: 'MD5/SHA256计算',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>',
-    category: '编码解码',
-    popular: false
-  },
-  {
-    id: 'qr-code',
-    name: '二维码生成',
-    description: '文本转二维码',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-500" viewBox="0 0 20 20" fill="currentColor"><path d="M2 4a1 1 0 011-1h14a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V4zm12 0a1 1 0 011 1v1a1 1 0 11-2 0V5a1 1 0 011-1zm0 4a1 1 0 011 1v1a1 1 0 11-2 0V9a1 1 0 011-1zm0 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-8 0a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm0-4a1 1 0 011 1v1a1 1 0 11-2 0V9a1 1 0 011-1zm0-4a1 1 0 011 1v1a1 1 0 11-2 0V5a1 1 0 011-1z"/></svg>',
-    category: '生成工具',
-    popular: false
-  },
-  {
-    id: 'markdown-preview',
-    name: 'Markdown预览',
-    description: 'Markdown格式化',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>',
-    category: '格式化',
-    popular: false
-  },
-  {
-    id: 'lorem-ipsum',
-    name: 'Lorem Ipsum',
-    description: '生成占位文本',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>',
-    category: '生成工具',
-    popular: false
-  },
+  // {
+  //   id: 'color-converter',
+  //   name: '颜色转换',
+  //   description: 'HEX/RGB/HSL转换',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>',
+  //   category: '实用工具',
+  //   popular: true
+  // },
+  // {
+  //   id: 'password-generator',
+  //   name: '密码生成',
+  //   description: '生成安全密码',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>',
+  //   category: '生成工具',
+  //   popular: true
+  // },
+  // {
+  //   id: 'url-encoder',
+  //   name: 'URL编码',
+  //   description: 'URL编码解码',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.586 1.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828V1.586zM11.414 1.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828V1.586zM4.586 10.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828v-2.829zM11.414 10.586a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.829a2 2 0 01-2.828-2.828v-2.829z" clip-rule="evenodd"/></svg>',
+  //   category: '编码解码',
+  //   popular: false
+  // },
+  // {
+  //   id: 'regex-tester',
+  //   name: '正则测试',
+  //   description: '正则表达式测试',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>',
+  //   category: '测试工具',
+  //   popular: false
+  // },
+  // {
+  //   id: 'uuid-generator',
+  //   name: 'UUID生成',
+  //   description: '生成UUID标识符',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>',
+  //   category: '生成工具',
+  //   popular: false
+  // },
+  // {
+  //   id: 'time-converter',
+  //   name: '时间戳转换',
+  //   description: '时间戳日期转换',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>',
+  //   category: '实用工具',
+  //   popular: false
+  // },
+  // {
+  //   id: 'hash-calculator',
+  //   name: '哈希计算',
+  //   description: 'MD5/SHA256计算',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>',
+  //   category: '编码解码',
+  //   popular: false
+  // },
+  // {
+  //   id: 'qr-code',
+  //   name: '二维码生成',
+  //   description: '文本转二维码',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-500" viewBox="0 0 20 20" fill="currentColor"><path d="M2 4a1 1 0 011-1h14a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V4zm12 0a1 1 0 011 1v1a1 1 0 11-2 0V5a1 1 0 011-1zm0 4a1 1 0 011 1v1a1 1 0 11-2 0V9a1 1 0 011-1zm0 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-8 0a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm0-4a1 1 0 011 1v1a1 1 0 11-2 0V9a1 1 0 011-1zm0-4a1 1 0 011 1v1a1 1 0 11-2 0V5a1 1 0 011-1z"/></svg>',
+  //   category: '生成工具',
+  //   popular: false
+  // },
+  // {
+  //   id: 'markdown-preview',
+  //   name: 'Markdown预览',
+  //   description: 'Markdown格式化',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-700" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>',
+  //   category: '格式化',
+  //   popular: false
+  // },
+  // {
+  //   id: 'lorem-ipsum',
+  //   name: 'Lorem Ipsum',
+  //   description: '生成占位文本',
+  //   icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>',
+  //   category: '生成工具',
+  //   popular: false
+  // },
 ])
 
 // 获取所有分类
@@ -194,7 +194,7 @@ onMounted(() => {
     <Header />
 
     <!-- 主要内容区域 -->
-    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <!-- 页面标题 -->
       <div class="mb-8">
         <h1 class="text-3xl font-bold text-gray-900 mb-2">开发者工具箱</h1>
@@ -209,7 +209,6 @@ onMounted(() => {
             v-model="searchQuery"
             placeholder="搜索工具..."
             prefix-icon=""
-            class="pl-10"
           />
         </div>
         <ElSelect v-model="selectedCategory" class="w-full sm:w-auto">

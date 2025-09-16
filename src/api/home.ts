@@ -6,8 +6,8 @@ export const getPosts = () => {
 }
 
 // 获取分类
-export const getCategories = () => {
-  return api.get('/categories')
+export const getCategories = (params:any) => {
+  return api.get('/categories', params)
 }
 
 // 获取热门文章

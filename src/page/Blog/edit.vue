@@ -121,7 +121,7 @@ onMounted(() => {
     <!-- 主要内容区域 -->
     <main class="flex-grow">
       <!-- 博客文章详情 -->
-      <section class="py-12 bg-gray-50">
+      <section class="py-26 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 box-border">
           <div class="flex flex-col md:flex-row gap-8">
             <!-- 博客内容区域 -->

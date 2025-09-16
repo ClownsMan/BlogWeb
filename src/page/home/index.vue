@@ -70,21 +70,10 @@ onMounted(() => {
         
         <!-- 收缩/展开控制按钮 -->
         <div class="flex justify-center -mb-12 absolute bottom-20 left-1/2 -translate-x-1/2 toggle_btn" @click="toggleContentVisibility">
-          <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              class="h-5 w-5 text-blue-600 transition-transform duration-300"
-              :class="{ 'transform rotate-180': !isContentVisible }"
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+          <el-icon>
+            <ArrowUpBold v-if="isContentVisible" />
+            <ArrowDownBold v-else />
+          </el-icon>
         </div>
       </section>
 
@@ -148,11 +137,11 @@ onMounted(() => {
 }
 
 .banner_view {
-  background-image: url('https://pingtou-1257997645.cos.ap-shanghai.myqcloud.com/static/pexels-ithalu-907485.jpg');
-  height: 40vh;
+  background-image: url('https://pingtou-1257997645.cos.ap-shanghai.myqcloud.com/static/web-bg.jpg');
+  height: 50vh;
   background-size: cover;
   background-position: center;
-  padding: 160px 0 40px;
+  padding: 130px 0 40px;
 }
 
 .welcome_title {
@@ -165,7 +154,7 @@ onMounted(() => {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   font-weight: normal;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 .website_name {
   font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
@@ -187,13 +176,14 @@ onMounted(() => {
 }
 .toggle_btn {
   width: 80px;
-  height: 20px;
+  height: 25px;
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  position: relative;
-  border-radius: 0 0 20px 20px;
+  position: absolute;
+  bottom: 48px;
+  border-radius: 20px 20px 0 0;
   overflow: hidden;
   display: flex;
   align-items: center;
