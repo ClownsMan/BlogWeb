@@ -22,7 +22,7 @@ export default defineConfig({
   },
   base: isSubApp ? '/subapp-tech-blog/' : '/', // 子应用的基础路径
   server: {
-    port: 8081, // 子应用端口
+    port: 8080, // 主应用固定端口
     headers: {
       'Access-Control-Allow-Origin': '*', // 允许跨域
       'Access-Control-Allow-Methods': '*',

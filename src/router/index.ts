@@ -31,7 +31,12 @@ const routes = [
     name: 'BlogDetail',
     component: BlogDetail,
     props: true
-  }
+  },
+  // {
+  //   path: '/subapp-interview-questions',
+  //   name: 'InterviewQuestions',
+  //   // component: InterviewQuestions,
+  // }
 ]
 
 const router = createRouter({
