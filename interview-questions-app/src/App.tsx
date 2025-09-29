@@ -136,9 +136,6 @@ function App() {
       // 列表视图
       return (
         <>
-          {/* 统计信息 */}
-          {renderStats()}
-
           {/* 内容布局 */}
           <div className="content-layout">
             {/* 左侧过滤器 */}
@@ -148,6 +145,9 @@ function App() {
                 onFiltersChange={setFilters}
               />
             </div>
+
+            {/* 统计信息 */}
+            {renderStats()}
 
             {/* 右侧问题列表 */}
             <section className="questions-list">

@@ -107,12 +107,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       </div>
 
       {/* 查看答案按钮 */}
-      <button
+      {/* <button
         className="view-answer-btn"
         onClick={() => setShowAnswer(!showAnswer)}
       >
         💡 {showAnswer ? '隐藏答案' : '查看核心答案'}
-      </button>
+      </button> */}
 
       {/* 答案区域 */}
       {showAnswer && (
@@ -127,29 +127,18 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         </div>
       )}
 
-      {/* 掌握程度标记 */}
-      <div className="mastery-container">
-        <button
-          className={`mastery-btn ${getMasteryColorClass('已掌握')} ${question.mastery === '已掌握' ? 'active' : ''}`}
-          onClick={() => onUpdateMastery(question.id, '已掌握')}
-          title="已掌握"
-        >
-          ✅
-        </button>
-        <button
-          className={`mastery-btn ${getMasteryColorClass('待复习')} ${question.mastery === '待复习' ? 'active' : ''}`}
-          onClick={() => onUpdateMastery(question.id, '待复习')}
-          title="待复习"
-        >
-          ⚠️
-        </button>
-        <button
-          className={`mastery-btn ${getMasteryColorClass('难点')} ${question.mastery === '难点' ? 'active' : ''}`}
-          onClick={() => onUpdateMastery(question.id, '难点')}
-          title="难点"
-        >
-          ❌
-        </button>
+      <div className='question-actions'>
+        {/* 掌握程度标记 */}
+        <div className="mastery-container">
+          <span onClick={() => onUpdateMastery(question.id, '已掌握')}>✅</span>
+          <span onClick={() => onUpdateMastery(question.id, '待复习')}>⚠️</span>
+          <span onClick={() => onUpdateMastery(question.id, '难点')}>❌</span>
+        </div>
+
+        {/* 提示点击翻转背后有答案 */}
+        <div className="answer-hint">
+          点击翻转背后有答案
+        </div>
       </div>
     </div>
   );

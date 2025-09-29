@@ -4,8 +4,8 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  margin-bottom: 20px;
+  padding: 14px 24px;
+  margin-bottom: 10px;
   /* position: sticky; */
   /* top: 20px; */
 }
@@ -21,12 +21,18 @@
 
 /* 搜索框 */
 .search-container {
-  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-actions {
+  display: flex;
 }
 
 .search-input {
-  width: 100%;
-  padding: 12px 16px;
+  width: 50%;
+  padding: 4px 10px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 1rem;
@@ -39,7 +45,14 @@
 }
 
 /* 筛选区域 */
+.filter-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
 .filter-section {
+  width: 24%;
   margin-bottom: 24px;
 }
 
@@ -138,23 +151,37 @@
 /* 操作按钮 */
 .reset-btn,
 .random-btn {
-  width: 100%;
-  padding: 12px;
+  padding: 8px 16px;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
-  margin-bottom: 12px;
 }
 
 .reset-btn {
   background-color: #6c757d;
   color: white;
+  margin-right: 10px;
 }
 
 .reset-btn:hover {
+  background-color: #5a6268;
+}
+
+/* 小型重置按钮 */
+.reset-btn-small {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #6c757d;
+  color: white;
+}
+
+.reset-btn-small:hover {
   background-color: #5a6268;
 }
 

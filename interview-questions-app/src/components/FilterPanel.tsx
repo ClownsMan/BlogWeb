@@ -9,6 +9,7 @@ interface FilterPanelProps {
 
 const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onFiltersChange }) => {
   const [localFilters, setLocalFilters] = useState<Filters>(filters);
+  const [isFiltersVisible, setIsFiltersVisible] = useState<boolean>(false);
 
   // 当外部filters变化时更新本地状态
   useEffect(() => {
@@ -76,7 +77,6 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onFiltersChange }) =
 
   return (
     <div className="filter-panel">
-      <h3>筛选条件</h3>
       
       {/* 搜索框 */}
       <div className="search-container">
@@ -85,114 +85,121 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onFiltersChange }) =
           placeholder="搜索题目、答案或标签..." 
           className="search-input"
         />
+        <div className='filter-actions'>
+          {/* 筛选按钮 - 切换显示/隐藏 */}
+          <button className="reset-btn" onClick={() => setIsFiltersVisible(!isFiltersVisible)}>
+            筛选
+          </button>
+
+          {/* 随机抽题按钮 */}
+          <button className="random-btn">
+            随机
+          </button>
+        </div>
       </div>
       
       {/* 技术栈筛选 */}
-      <div className="filter-section">
-        <h4>技术栈</h4>
-        <div className="filter-options">
-          {technologies.map((tech) => (
+      {isFiltersVisible && <div className="filter-box">
+        <div className="filter-section">
+          <h4>技术栈</h4>
+          <div className="filter-options">
+            {technologies.map((tech) => (
+              <button
+                key={tech}
+                className={`filter-option ${localFilters.technologies.includes(tech) ? 'active' : ''}`}
+                onClick={() => handleTechnologyToggle(tech)}
+              >
+                {tech}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 难度筛选 */}
+        <div className="filter-section">
+          <h4>难度</h4>
+          <div className="filter-options">
             <button
-              key={tech}
-              className={`filter-option ${localFilters.technologies.includes(tech) ? 'active' : ''}`}
-              onClick={() => handleTechnologyToggle(tech)}
+              className={`filter-option difficulty-easy ${localFilters.difficulties.includes('简单') ? 'active' : ''}`}
+              onClick={() => handleDifficultyToggle('简单')}
             >
-              {tech}
+              简单
             </button>
-          ))}
+            <button
+              className={`filter-option difficulty-medium ${localFilters.difficulties.includes('中等') ? 'active' : ''}`}
+              onClick={() => handleDifficultyToggle('中等')}
+            >
+              中等
+            </button>
+            <button
+              className={`filter-option difficulty-hard ${localFilters.difficulties.includes('困难') ? 'active' : ''}`}
+              onClick={() => handleDifficultyToggle('困难')}
+            >
+              困难
+            </button>
+          </div>
+        </div> 
+
+        {/* 题型筛选 */}
+        <div className="filter-section">
+          <h4>题型</h4>
+          <div className="filter-options">
+            <button
+              className={`filter-option type-principle ${localFilters.types.includes('原理') ? 'active' : ''}`}
+              onClick={() => handleTypeToggle('原理')}
+            >
+              原理
+            </button>
+            <button
+              className={`filter-option type-code ${localFilters.types.includes('手写') ? 'active' : ''}`}
+              onClick={() => handleTypeToggle('手写')}
+            >
+              手写
+            </button>
+            <button
+              className={`filter-option type-optimize ${localFilters.types.includes('优化') ? 'active' : ''}`}
+              onClick={() => handleTypeToggle('优化')}
+            >
+              优化
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* 难度筛选 */}
-      <div className="filter-section">
-        <h4>难度</h4>
-        <div className="filter-options">
-          <button
-            className={`filter-option difficulty-easy ${localFilters.difficulties.includes('简单') ? 'active' : ''}`}
-            onClick={() => handleDifficultyToggle('简单')}
-          >
-            简单
-          </button>
-          <button
-            className={`filter-option difficulty-medium ${localFilters.difficulties.includes('中等') ? 'active' : ''}`}
-            onClick={() => handleDifficultyToggle('中等')}
-          >
-            中等
-          </button>
-          <button
-            className={`filter-option difficulty-hard ${localFilters.difficulties.includes('困难') ? 'active' : ''}`}
-            onClick={() => handleDifficultyToggle('困难')}
-          >
-            困难
-          </button>
+        {/* 掌握程度筛选 */}
+        <div className="filter-section">
+          <h4>掌握程度</h4>
+          <div className="filter-options">
+            <button
+              className={`filter-option mastery-mastered ${localFilters.mastery.includes('已掌握') ? 'active' : ''}`}
+              onClick={() => handleMasteryToggle('已掌握')}
+            >
+              已掌握
+            </button>
+            <button
+              className={`filter-option mastery-review ${localFilters.mastery.includes('待复习') ? 'active' : ''}`}
+              onClick={() => handleMasteryToggle('待复习')}
+            >
+              待复习
+            </button>
+            <button
+              className={`filter-option mastery-hard ${localFilters.mastery.includes('难点') ? 'active' : ''}`}
+              onClick={() => handleMasteryToggle('难点')}
+            >
+              难点
+            </button>
+            <button
+              className={`filter-option mastery-default ${localFilters.mastery.includes('未标记') ? 'active' : ''}`}
+              onClick={() => handleMasteryToggle('未标记')}
+            >
+              未标记
+            </button>
+          </div>
         </div>
-      </div>
-
-      {/* 题型筛选 */}
-      <div className="filter-section">
-        <h4>题型</h4>
-        <div className="filter-options">
-          <button
-            className={`filter-option type-principle ${localFilters.types.includes('原理') ? 'active' : ''}`}
-            onClick={() => handleTypeToggle('原理')}
-          >
-            原理
-          </button>
-          <button
-            className={`filter-option type-code ${localFilters.types.includes('手写') ? 'active' : ''}`}
-            onClick={() => handleTypeToggle('手写')}
-          >
-            手写
-          </button>
-          <button
-            className={`filter-option type-optimize ${localFilters.types.includes('优化') ? 'active' : ''}`}
-            onClick={() => handleTypeToggle('优化')}
-          >
-            优化
-          </button>
+        
         </div>
-      </div>
+      }
+      
 
-      {/* 掌握程度筛选 */}
-      <div className="filter-section">
-        <h4>掌握程度</h4>
-        <div className="filter-options">
-          <button
-            className={`filter-option mastery-mastered ${localFilters.mastery.includes('已掌握') ? 'active' : ''}`}
-            onClick={() => handleMasteryToggle('已掌握')}
-          >
-            已掌握
-          </button>
-          <button
-            className={`filter-option mastery-review ${localFilters.mastery.includes('待复习') ? 'active' : ''}`}
-            onClick={() => handleMasteryToggle('待复习')}
-          >
-            待复习
-          </button>
-          <button
-            className={`filter-option mastery-hard ${localFilters.mastery.includes('难点') ? 'active' : ''}`}
-            onClick={() => handleMasteryToggle('难点')}
-          >
-            难点
-          </button>
-          <button
-            className={`filter-option mastery-default ${localFilters.mastery.includes('未标记') ? 'active' : ''}`}
-            onClick={() => handleMasteryToggle('未标记')}
-          >
-            未标记
-          </button>
-        </div>
-      </div>
-
-      {/* 重置按钮 */}
-      <button className="reset-btn" onClick={handleReset}>
-        🔄 重置筛选
-      </button>
-
-      {/* 随机抽题按钮 */}
-      <button className="random-btn">
-        🎲 随机抽题模式
-      </button>
     </div>
   );
 };
