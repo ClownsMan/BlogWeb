@@ -1,0 +1,173 @@
+/* 代码沙箱样式 */
+.code-sandbox {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+/* 沙箱头部 */
+.sandbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.sandbox-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #333;
+}
+
+/* 控制按钮 */
+.sandbox-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.run-btn,
+.reset-btn,
+.clear-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.run-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.run-btn:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.run-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reset-btn {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.reset-btn:hover {
+  background-color: #e0a800;
+}
+
+.clear-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.clear-btn:hover {
+  background-color: #c82333;
+}
+
+/* 代码编辑器容器 */
+.code-editor-container {
+  position: relative;
+}
+
+/* 代码编辑器 */
+.code-editor {
+  width: 100%;
+  min-height: 200px;
+  padding: 16px 24px;
+  border: none;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  tab-size: 2;
+  outline: none;
+  overflow-x: auto;
+}
+
+.code-editor::placeholder {
+  color: #6a6a6a;
+}
+
+/* 控制台容器 */
+.console-container {
+  background-color: #2d2d2d;
+  border-top: 1px solid #404040;
+}
+
+/* 控制台头部 */
+.console-header {
+  padding: 8px 24px;
+  background-color: #3d3d3d;
+  border-bottom: 1px solid #404040;
+}
+
+.console-header span {
+  color: #cccccc;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* 控制台输出 */
+.console-output {
+  padding: 16px 24px;
+  min-height: 100px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* 控制台占位符 */
+.console-placeholder {
+  color: #6a6a6a;
+  font-style: italic;
+}
+
+/* 控制台行 */
+.console-line {
+  color: #d4d4d4;
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.console-line:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .sandbox-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .sandbox-controls {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .code-editor {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+  
+  .console-output {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+}

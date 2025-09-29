@@ -1,0 +1,241 @@
+/* 问题卡片样式 */
+.question-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.question-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 收藏按钮 */
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.favorite-btn:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+.favorite-btn.favorited {
+  color: gold;
+}
+
+/* 问题内容 */
+.question-content h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.25rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* 标签容器 */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* 标签样式 */
+.tag,
+.difficulty-tag,
+.type-tag {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+}
+
+/* 技术标签颜色 */
+.tag-js {
+  background-color: #f7df1e;
+  color: #333;
+}
+
+.tag-react {
+  background-color: #61dafb;
+  color: #333;
+}
+
+.tag-css {
+  background-color: #1572b6;
+}
+
+.tag-algorithm {
+  background-color: #7952b3;
+}
+
+.tag-default {
+  background-color: #666;
+}
+
+/* 难度标签颜色 */
+.difficulty-easy {
+  background-color: #28a745;
+}
+
+.difficulty-medium {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.difficulty-hard {
+  background-color: #dc3545;
+}
+
+/* 题型标签颜色 */
+.type-principle {
+  background-color: #17a2b8;
+}
+
+.type-code {
+  background-color: #6f42c1;
+}
+
+.type-optimize {
+  background-color: #fd7e14;
+}
+
+/* 查看答案按钮 */
+.view-answer-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 16px;
+}
+
+.view-answer-btn:hover {
+  background-color: #535bf2;
+}
+
+/* 答案容器 */
+.answer-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.core-answer {
+  margin: 0 0 16px 0;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 查看详情按钮 */
+.view-detail-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.view-detail-btn:hover {
+  background-color: #218838;
+}
+
+/* 掌握程度标记 */
+.mastery-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.mastery-btn {
+  background: none;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mastery-btn:hover {
+  transform: scale(1.1);
+}
+
+/* 掌握程度颜色 */
+.mastery-mastered.active {
+  border-color: #28a745;
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.mastery-review.active {
+  border-color: #ffc107;
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.mastery-hard.active {
+  border-color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .question-card {
+    padding: 16px;
+  }
+  
+  .question-content h3 {
+    font-size: 1.125rem;
+  }
+  
+  .view-answer-btn {
+    padding: 10px;
+    font-size: 0.875rem;
+  }
+  
+  .mastery-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}

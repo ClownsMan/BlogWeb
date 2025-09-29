@@ -1,0 +1,198 @@
+/* 过滤器面板样式 */
+.filter-panel {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 20px;
+  /* position: sticky; */
+  /* top: 20px; */
+}
+
+.filter-panel h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.25rem;
+  color: #333;
+  text-align: center;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+/* 搜索框 */
+.search-container {
+  margin-bottom: 24px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+/* 筛选区域 */
+.filter-section {
+  margin-bottom: 24px;
+}
+
+.filter-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  color: #555;
+  font-weight: 600;
+}
+
+/* 筛选选项容器 */
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 筛选选项按钮 */
+.filter-option {
+  padding: 8px 16px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #666;
+}
+
+.filter-option:hover {
+  border-color: #646cff;
+  color: #646cff;
+}
+
+.filter-option.active {
+  background-color: #646cff;
+  border-color: #646cff;
+  color: white;
+}
+
+/* 难度选项颜色 */
+.filter-option.difficulty-easy.active {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.filter-option.difficulty-medium.active {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #333;
+}
+
+.filter-option.difficulty-hard.active {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* 题型选项颜色 */
+.filter-option.type-principle.active {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.filter-option.type-code.active {
+  background-color: #6f42c1;
+  border-color: #6f42c1;
+}
+
+.filter-option.type-optimize.active {
+  background-color: #fd7e14;
+  border-color: #fd7e14;
+}
+
+/* 掌握程度选项颜色 */
+.filter-option.mastery-mastered.active {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.filter-option.mastery-review.active {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #333;
+}
+
+.filter-option.mastery-hard.active {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.filter-option.mastery-default.active {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* 操作按钮 */
+.reset-btn,
+.random-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+}
+
+.reset-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #5a6268;
+}
+
+.random-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.random-btn:hover {
+  background-color: #138496;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(23, 162, 184, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .filter-panel {
+    padding: 16px;
+    position: static;
+  }
+  
+  .filter-panel h3 {
+    font-size: 1.125rem;
+  }
+  
+  .search-input {
+    padding: 10px 14px;
+    font-size: 0.875rem;
+  }
+  
+  .filter-option {
+    padding: 6px 12px;
+    font-size: 0.8125rem;
+  }
+  
+  .reset-btn,
+  .random-btn {
+    padding: 10px;
+    font-size: 0.875rem;
+  }
+}
